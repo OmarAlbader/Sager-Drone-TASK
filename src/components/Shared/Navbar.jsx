@@ -4,7 +4,7 @@ const Navbar = () => {
       <img
         src="/Icon/white-logo.png"
         alt="logo"
-        className="text-whtie -ml-10 h-[90%] lg:-ml-5"
+        className="-ml-10 h-[90%] text-white lg:-ml-5"
       />
       <div className="flex h-full items-center">
         <div className="flex h-fit gap-5">

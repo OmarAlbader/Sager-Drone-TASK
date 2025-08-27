@@ -1,11 +1,6 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useState } from "react";
-import Map, {
-  Layer,
-  MapProvider,
-  NavigationControl,
-  Source,
-} from "react-map-gl/mapbox";
+import Map, { MapProvider, NavigationControl } from "react-map-gl/mapbox";
 import PopUp from "../../components/Shared/PopUp";
 import { useSocketIO } from "../../hooks/useSocketIO";
 import { useDroneStore } from "../../state/droneStore";

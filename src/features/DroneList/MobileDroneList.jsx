@@ -3,7 +3,7 @@ import { useDroneStore } from "../../state/droneStore";
 import { ArrowUp, CircleX } from "lucide-react";
 import { DroneListItem } from "./DroneListItem";
 
-export const MobileDroneList = React.memo(({ activeDroneId }) => {
+const MobileDroneList = React.memo(({ activeDroneId }) => {
   const { drones } = useDroneStore();
   const droneCount = useDroneStore((state) => state.droneCount);
 
@@ -81,3 +81,5 @@ export const MobileDroneList = React.memo(({ activeDroneId }) => {
     </div>
   );
 });
+
+export default MobileDroneList;

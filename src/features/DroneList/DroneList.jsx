@@ -2,20 +2,20 @@ import React, { useState, useMemo, useCallback } from "react";
 import { useDroneStore } from "../../state/droneStore";
 import { CircleX } from "lucide-react";
 import { DroneListItem } from "./DroneListItem";
+import DroneListTab from "./DroneListTab";
 
-export const DroneList = React.memo(() => {
+const DroneList = React.memo(() => {
   const drones = useDroneStore((state) => state.drones);
   const droneCount = useDroneStore((state) => state.droneCount);
-
-  const [selectedMenu, setSelectedMenu] = useState("drones");
-
-  const dronesToShow = useMemo(() => {
-    return Object.values(drones);
-  }, [drones]);
+  const [selectedMenu, setSelectedMenu] = useState("Drones");
 
   const handleMenuSelect = useCallback((menu) => {
     setSelectedMenu(menu);
   }, []);
+
+  const dronesToShow = useMemo(() => {
+    return Object.values(drones);
+  }, [drones]);
 
   return (
     <div
@@ -34,23 +34,21 @@ export const DroneList = React.memo(() => {
         />
       </div>
 
-      {/* Drone List Tabs */}
+      {/* Tabs */}
       <ul className="flex gap-8 border-b-2 border-black px-5 text-sm">
-        <li
-          className={`cursor-pointer border-red-600 transition-colors ${selectedMenu === "drones" ? "border-b-5 pb-2" : "text-gray-500"} `}
-          onClick={() => handleMenuSelect("drones")}
-        >
-          Drones
-        </li>
-        <li
-          className={`cursor-pointer border-red-600 transition-colors ${selectedMenu === "flight-history" ? "border-b-5 pb-2" : "text-gray-500"} `}
-          onClick={() => handleMenuSelect("flight-history")}
-        >
-          Flight History
-        </li>
+        <DroneListTab
+          selected={selectedMenu}
+          setSelectedMenu={handleMenuSelect}
+          label={"Drones"}
+        />
+        <DroneListTab
+          selected={selectedMenu}
+          setSelectedMenu={handleMenuSelect}
+          label={"Flight History"}
+        />
       </ul>
 
-      {/* Drone List Items */}
+      {/* Drone Items */}
       <ul>
         {dronesToShow.map((drone) => (
           <DroneListItem key={drone.serial} drone={drone} />
@@ -59,3 +57,5 @@ export const DroneList = React.memo(() => {
     </div>
   );
 });
+
+export default DroneList;

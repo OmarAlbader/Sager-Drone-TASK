@@ -80,6 +80,7 @@ const MapContainer = ({ children }) => {
         onLoad={handleMapOnLoad}
         onClick={handleDroneClick}
         onMouseMove={handleMouseMove}
+        reuseMaps
       >
         {mapLoaded && imageLoaded && <DronesSource />}
         <NavigationControl />

@@ -2,6 +2,10 @@
 
 This project is a React + Vite frontend for a drone management dashboard.
 
+## Live Preview
+
+[View the app live on Netlify](https://sager-drone-task.netlify.app)
+
 ## Getting Started
 
 ### 1. Clone the repository

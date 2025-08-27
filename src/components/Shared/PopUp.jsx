@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Popup } from "react-map-gl/mapbox";
-import { formatFlightTime } from "../../utils/helpers";
 import { useDroneStore } from "../../state/droneStore";
+import { formatFlightTime } from "../../utils/helpers";
 
 const PopUp = ({ hoveredDroneId }) => {
   const hoveredDrone = useDroneStore((state) => state.drones[hoveredDroneId]);

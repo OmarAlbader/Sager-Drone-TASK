@@ -1,6 +1,6 @@
+import { ArrowUp, CircleX } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useDroneStore } from "../../state/droneStore";
-import { ArrowUp, CircleX } from "lucide-react";
 import { DroneListItem } from "./DroneListItem";
 
 const MobileDroneList = React.memo(({ activeDroneId }) => {

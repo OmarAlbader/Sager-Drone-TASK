@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useSidebarStore } from "../../features/Dashboard/dashboardSlice";
 
 const Sidebar = () => {
-  const [selectedTab, setSelectedTab] = useState("map");
+  const selectedTab = useSidebarStore((state) => state.selectedTab);
+  const selectSidebarTab = useSidebarStore((state) => state.selectSidebarTab);
 
   const tabs = [
     {
@@ -13,7 +14,10 @@ const Sidebar = () => {
   ];
 
   return (
-    <div id="sidebar" className="h-full w-20 bg-[#111] py-5 text-white sm:w-24">
+    <div
+      id="sidebar"
+      className="h-full min-w-20 bg-[#111] py-5 text-white sm:min-w-24"
+    >
       <ul className="flex flex-col items-center gap-2 text-[0.65rem]">
         {tabs.map((tab) => (
           <li
@@ -23,7 +27,7 @@ const Sidebar = () => {
                 ? "border-l-4 border-l-red-600 bg-white/5 pr-1 text-white"
                 : "text-gray-500 hover:bg-white/5"
             }`}
-            onClick={() => setSelectedTab(tab.id)}
+            onClick={() => selectSidebarTab(tab.id)}
           >
             <img src={tab.icon} alt={tab.label.toLowerCase()} />
             {tab.label}

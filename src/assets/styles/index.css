@@ -1,0 +1,76 @@
+@layer utilities {
+  .mobile-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .mobile-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .mobile-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+
+  .mobile-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .mobile-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.mapboxgl-popup {
+  translate: 0 -25px;
+
+  .mapboxgl-popup-content {
+    background-color: #111 !important;
+    color: whitesmoke;
+    border-radius: 0.5rem;
+  }
+
+  .mapboxgl-popup-tip {
+    border-top-color: #111 !important;
+  }
+}
+
+.mapboxgl-ctrl-bottom-right,
+.mapboxgl-ctrl-bottom-left {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  #sidebar {
+    display: none;
+  }
+
+  #mobile-drone-list {
+    padding-inline: 2.5rem;
+  }
+
+  #mobile-tape {
+    transform: translateX(-50px);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #mobile-drone-list-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  #drone-list {
+    display: none;
+  }
+}

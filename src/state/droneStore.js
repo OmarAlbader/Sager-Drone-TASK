@@ -14,9 +14,16 @@ export const useDroneStore = create(
         const isAllowed = newDrone.registration.split("-")[1].startsWith("B");
         const [longitude, latitude] = newDrone.coordinates;
 
+        const existingDrone = state.drones[newDrone.serial];
+
+        const updatedPath = existingDrone
+          ? [...existingDrone.path, { longitude, latitude }]
+          : [{ longitude, latitude }];
+
         const droneObject = {
           ...newDrone,
           isAllowed,
+          path: updatedPath,
           coordinates: {
             longitude,
             latitude,
